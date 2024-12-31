@@ -1,12 +1,7 @@
 services:
-
   - type: web
-
     name: sunbeltsupply
-
-    runtime: python3
-
+    runtime: python3.13.1
     buildCommand: pip install -r requirements.txt
-
-    startCommand: gunicorn SunBeltSupply:app
+    startCommand: cd SunbeltSupply && gunicorn --worker-class aiohttp.worker.GunicornWebWorker SunBeltSupply:app
  
